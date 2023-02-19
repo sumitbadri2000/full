@@ -12,19 +12,19 @@ noteRouter.post("/create", async (req, res) => {
   const payload = req.body;
   const note = new NoteModel(payload);
   await note.save();
-  res.send({ msg: "something create"});
+  res.send({ msg: "something create" });
 });
 
 noteRouter.patch("/update/:id", async (req, res) => {
   const noteID = req.params.id;
-  const payload=req.body
-  await NoteModel.findByIdAndUpdate({ __id: noteID },payload);
-  res.send({msg:`update ${noteID}`});
+  const payload = req.body;
+  await NoteModel.findByIdAndUpdate({ _id: noteID }, payload);
+  res.send({ msg: `update ${noteID}` });
 });
 
 noteRouter.delete("/delete/:id", async (req, res) => {
   const noteID = req.params.id;
-  await NoteModel.findByIdAndDelete({ __id: noteID });
-  res.send({msg:`deleted ${noteID}`});
+  await NoteModel.findByIdAndDelete({ _id: noteID });
+  res.send({ msg: `deleted ${noteID}` });
 });
 module.exports = { noteRouter };
