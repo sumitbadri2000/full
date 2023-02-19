@@ -1,10 +1,10 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
 const { connection } = require("./db");
 const { UserRouter } = require("./routes/user.routes");
 const { noteRouter } = require("./routes/node.routes");
 const { authenticate } = require("./middleware/auth.middle");
+const app = express();
 app.use(express.json());
 
 app.use(
