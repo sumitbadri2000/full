@@ -15,7 +15,7 @@ noteRouter.post("/create", async (req, res) => {
   res.send({ msg: "something create"});
 });
 
-noteRouter.update("/update/:id", async (req, res) => {
+noteRouter.patch("/update/:id", async (req, res) => {
   const noteID = req.params.id;
   const payload=req.body
   await NoteModel.findByIdAndUpdate({ __id: noteID },payload);
